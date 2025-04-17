@@ -1,0 +1,54 @@
+# Data splitting configuration
+data:
+  # Test set size (must be between 0 and 1)
+  test_size: 0.2
+  # Random state for reproducibility
+  random_state: 42
+
+# Model configurations
+models:
+  # Linear Regression configuration
+  linear_regression:
+    # Whether to calculate the intercept for this model
+    fit_intercept: true
+    # Whether to copy X before fitting
+    copy_X: true
+    # Number of jobs to run in parallel (-1 means using all processors)
+    n_jobs: -1
+    # Whether to force coefficients to be positive
+    positive: false
+
+  # Random Forest configuration
+  random_forest:
+    # Number of trees in the forest
+    n_estimators: 100
+    # Maximum depth of the tree
+    max_depth: 10
+    # Minimum number of samples required to split an internal node
+    min_samples_split: 2
+    # Minimum number of samples required to be at a leaf node
+    min_samples_leaf: 1
+    # Random state for reproducibility
+    random_state: 42
+
+  # Gradient Boosting configuration
+  gradient_boosting:
+    # Number of boosting stages to perform
+    n_estimators: 100
+    # Learning rate shrinks the contribution of each tree
+    learning_rate: 0.1
+    # Maximum depth of the individual regression estimators
+    max_depth: 3
+    # Minimum number of samples required to split an internal node
+    min_samples_split: 2
+    # Minimum number of samples required to be at a leaf node
+    min_samples_leaf: 1
+    # Random state for reproducibility
+    random_state: 42
+
+# Evaluation configuration
+evaluation:
+  # Number of folds for cross-validation
+  cv_folds: 5
+  # Scoring metric for cross-validation
+  scoring: neg_mean_squared_error 
